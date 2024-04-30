@@ -23,10 +23,10 @@
                 <div class="mb-3">
                     <label for="brand" class="form-label">バイクメーカー</label>
                     <select class="form-select " id="brand" aria-label="Default select example">
-                        <option selected>Honda</option>
-                        <option value="1">kawasaki</option>
+                        <option th:each="brand: ${brands}" th:text="${brand.brandName}" th:value="${brand.brandId}"></option>
+                        <!-- <option value="1">kawasaki</option>
                         <option value="2">yamaha</option>
-                        <option value="3">suzuki</option>
+                        <option value="3">suzuki</option> -->
                     </select>
                 </div>
             </div>
@@ -48,30 +48,29 @@
                     <table class="table table-dark table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">No</th>
+                                <th scope="col">メーカー</th>
+                                <th scope="col">車名</th>
+                                <th scope="col">エンジン</th>
+                                <th scope="col">価格</th>
+                                <th scope="col">コメント</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                            <tr th:each="moto: ${motos}">
+                                <th scope="row" th:text="${moto.motoNo}">1</th>
+                                <th th:text="${moto.motoName}">1</th>
+                                <th th:text="${moto.seatHeight}">1</th>
+                                <th th:text="${moto.cooling}">1</th>
+                                
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
+                            
+                            <!-- <tr>
                                 <th scope="row">3</th>
                                 <td colspan="2">Larry the Bird</td>
                                 <td>@twitter</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
